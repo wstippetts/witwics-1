@@ -23,16 +23,16 @@ describe("clue5", () => {
     it("outfit at least 4 things", () => {
       chai.assert.isTrue(dog.likes.length >= 4, "We need to know more about her outfit")
     })
-    describe("isCaptured Function", () => {
-      let isCaptured = window["isCapured"]
-      it("Function uses dot notation to return the isCaptured on carmen object", () => {
-        carmen.captured = false
-        chai.assert.isTrue(isCaptured() == carmen.captured, "Be sure to use dot notation")
-      })
+  })
+  describe("isCaptured Function", () => {
+    let isCaptured = window["isCapured"]
+    it("Function uses dot notation to return the isCaptured on carmen object", () => {
+      carmen.captured = false
+      chai.assert.isTrue(isCaptured() == carmen.captured, "Be sure to use dot notation")
     })
   })
 
-  describe("The Ticket", () => {
+
     describe("updateValue Function", () => {
       let updateValue = window["updateValue"]
       let ticket = window["ticket"]
@@ -73,6 +73,6 @@ describe("clue5", () => {
         chai.assert.isUndefined(ticket.id, "Be sure to delete the 'id' property")
       })
     })
-  })
+
 })
 

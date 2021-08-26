@@ -11,15 +11,14 @@
 // array. Inside the array, include at least 4 string values.
 
 let carmen = {
-  //your code in here
+    // YOUR CODE HERE
 }
 
 // So the warrent gets updated as quickly as possible our database needs to quickly check if she has been captured
 
 // write a function that returns the value of the captured property on your carmen object using dot notation.
 function isCaptured() {
-  // your code inside here
-  // don't forget to use the return keyword
+  // YOUR CODE HERE
 }
 
 
@@ -35,17 +34,18 @@ let ticket = {
 
 // Write a function that uses bracket notation to change one of the the ticket's keys to the new value
 function updateValue(key, newValue) {
+    // YOUR CODE HERE
 }
 
 // Create a function that uses dot or bracket notation to create a property 
 // on the ticket object called 'status' and assign it the parameter that is passed. 
 
 function flightStatus(status) {
-  // your code inside here
+   // YOUR CODE HERE
 }
 
 
 // The ticket id is messing with our internal systems id's write a function that will delete the id property off of the ticket object (DO NOT EDIT THE PRE-WRITTEN CODE)
 function removeId(){
-  // your code here
+  // YOUR CODE HERE
 }

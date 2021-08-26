@@ -5,6 +5,7 @@
 // Given two numbers, write a function that will return  the larger number
 
 function largerNum(num1, num2) {
+      // YOUR CODE HERE
 }
 
 
@@ -19,7 +20,7 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function crimeGrader(successful, total) {
-
+      // YOUR CODE HERE
 }
 
 
@@ -32,15 +33,14 @@ function crimeGrader(successful, total) {
 //   night is between 10pm and 4am (22 -24 and 1 - 4)
 //   Make sure your ranges are inclusive
 function timeOfDay(hour) {
-    // you code below
-
+      // YOUR CODE HERE
 }
 
 // Our surveillance team finds the closer we get to catching the associate the hotter the person gets, we can use this to narrow down the person
 
 // Write a function that will take in a number and return 'suspicious' if it indicates the person is over 98.6° and if the person is at or above 103° 'very suspicious', if it is under return 'not suspicious', (hint: try this with string concatenation)
 function isSuspicious(temp) {
-
+      // YOUR CODE HERE
 }
 
 // We think we might have found the associate, and have added a tracker to their car, to find where the associate is hiding we need to know when their car is stopped
@@ -56,7 +56,7 @@ let exampleCar = {
 }
 
 function isStopped(car) {
-
+      // YOUR CODE HERE
 }
 
 // We have found everything we need to capture the associate, to make sure they don't elude us we want to make sure we only capture them when they are at home and their asleep.
@@ -70,5 +70,5 @@ let suspect = {
 }
 
 function attemptCapture(suspect) {
-
+      // YOUR CODE HERE
 }

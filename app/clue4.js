@@ -11,6 +11,7 @@
     // output: 7
 
 function daysPosition(day, offset) {
+      // YOUR CODE HERE
 }
 
 
@@ -30,7 +31,9 @@ function daysPosition(day, offset) {
  *            >= +3     |   "Ouch"
  */
 
- function golfScore(score, par) {}
+ function golfScore(score, par) {
+       // YOUR CODE HERE
+ }
  
 
 
@@ -54,4 +57,6 @@ function daysPosition(day, offset) {
 
 let count = 0
 
-function cardCounter(card) {}
+function cardCounter(card) {
+      // YOUR CODE HERE
+}

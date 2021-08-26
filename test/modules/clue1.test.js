@@ -1,4 +1,4 @@
-describe("clue1.js", () => {
+describe("clue1", () => {
   describe("LetterAtPosition Function", () => {
     let letterAtPos = window['letterAtPosition']
     it("it works with one character", () => {
@@ -39,6 +39,20 @@ describe("clue1.js", () => {
 
   describe("messageContainsPhrase Function", () => {
     let messageContainsPhrase = window['messageContainsPhrase']
-    // TODO write tests for message includes
+    it("returns a boolean value", ()=>{
+      chai.assert.isBoolean(messageContainsPhrase('Hello World','o'), 'Be sure to return a bool value')
+    })
+    it("finds a single letter in a message", ()=>{
+      chai.assert.isTrue(messageContainsPhrase('Hello World','o'), 'be sure to return true with the the message contains the the phrase')
+    })
+    it("finds a phrase in a message", ()=>{
+      chai.assert.isTrue(messageContainsPhrase('It\'s dangerous to go alone, take this.','go alone'), 'should work on phrases including spaces')
+    })
+    it("returns false if phrase not found", ()=>{
+      chai.assert.isFalse(messageContainsPhrase('It\'s dangerous to go alone, take this.','zelda'), 'should return false if the phrase does not exist in the message')
+    })
+    it("is not case sensitive", ()=>{
+      chai.assert.isFalse(messageContainsPhrase('Welcome to Jurassic Park', 'jurassic'), 'should return true if the phrase is in the message despite casing')
+    })
   })
 })

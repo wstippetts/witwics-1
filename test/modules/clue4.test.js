@@ -1,4 +1,4 @@
-describe("switches.js", () => {
+describe("clue4", () => {
    describe("daysPosition Function", () => {
       let daysPosition = window["daysPosition"]
       it("returns a number (or string if bad input)", () => {

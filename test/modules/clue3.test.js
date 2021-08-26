@@ -1,4 +1,4 @@
-describe("numbers.js", () => {
+describe("clue3", () => {
   let add = window['add']
 
   describe("Add Function", () => {

@@ -1,4 +1,4 @@
-describe("objects.js", () => {
+describe("clue5", () => {
   let carmen
   try {
     carmen = carmen

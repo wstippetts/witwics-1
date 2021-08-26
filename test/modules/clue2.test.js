@@ -1,4 +1,4 @@
-describe("clue2.js", () => {
+describe("clue2", () => {
    describe("largerNum Function", () => {
       let largerNum = window["largerNum"]
       it("Returns the larger number", () => {

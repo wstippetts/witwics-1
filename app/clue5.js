@@ -1,7 +1,6 @@
 // Having found everything else we now need to figure out the location of Carmen's hideout
 
-// We need a warrant to properly arrest Carmen for her crimes so we need to provide the following information about carmen: 
-// Add the following properties to the carmen object: 
+// Before we go to the location, We need a criminal description to provide to the local authorities which includes the following information (add these to the carmen object below): 
   // name (Carmen SanDiego)
   // heightInInches, (67) 
   // captured, (false) 
@@ -24,37 +23,29 @@ function isCaptured() {
 }
 
 
-// ANCHOR keep up the chase here
-// Cat Challenges
 
-let cat = {
-  name: "Pickles",
-  legs: 4,
-  whiskers: true,
-  likes: ["napping", "playing", "running at 2:00am", "pets", "stealing food off the counter"]
+// Now that that is settled lets, figure out where we are going from this plane ticket stub we found where some information has been scrambled
+
+let ticket = {
+  id: "59ee052546081123d0e21843",
+  airline: "aim care",
+  flightNumber: 317,
+  firstClass: false
 }
 
-// Write a function that uses bracket notation to change the cat's name from 
-// "Pickles" to "Kevin".Then use either dot or bracket notation to return 
-// the value of the name property.
-function renameCat() {
+// Write a function that uses bracket notation to change one of the the ticket's keys to the new value
+function updateValue(key, newValue) {
 }
 
 // Create a function that uses dot or bracket notation to create a property 
-// on the cat object called "color" and assign it to any color you'd like. 
-// Then return the value of the color property.
+// on the ticket object called 'status' and assign it the parameter that is passed. 
 
-function colorTheCat() {
+function flightStatus(status) {
   // your code inside here
 }
 
-// Delete the whiskers property off of the cat object. You may use either dot or bracket notation.
 
-
-// Write a function that uses dot AND bracket notation to access and return the 
-// value of the fourth item in the likes array("pets"). 
-// Example: objectName.property[indexNumber]
-
-function returnIndex(cat) {
-  // your code inside here
+// The ticket id is messing with our internal systems id's write a function that will delete the id property off of the ticket object (DO NOT EDIT THE PRE-WRITTEN CODE)
+function removeId(){
+  // your code here
 }

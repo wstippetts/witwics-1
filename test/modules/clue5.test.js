@@ -32,42 +32,45 @@ describe("objects.js", () => {
     })
   })
 
-  describe("The Cat Challenges", () => {
-    describe("renameCat Function", () => {
-      let renameCat = window["renameCat"]
-      it("Function should return the cat's new name", () => {
-        chai.assert.strictEqual(renameCat(), "Kevin", "Be sure to name the cat Kevin")
+  describe("The Ticket", () => {
+    describe("updateValue Function", () => {
+      let updateValue = window["updateValue"]
+      let ticket = window["ticket"]
+      it("Function should change the ticket's airline property", () => {
+        ticket.airline = 'aim care'
+        updateValue('airline', 'acme air')
+        chai.assert.strictEqual(ticket.airline, "acme air", "Be sure to change the key's value using bracket notation")
       })
-      it("Function should reassign the cat's name", () => {
-        chai.assert.isTrue(testCat.name === "Kevin", "Be sure to reassign the value of the cat's name to Kevin")
+      it("Function should change the ticket's flightNumber property", () => {
+        ticket.flightNumber = 317
+        updateValue('flightNumber', 137)
+        chai.assert.strictEqual(ticket.flightNumber, 137, "Be sure to change the key's value using bracket notation")
       })
-    })
-    describe("colorTheCat Function", () => {
-      let colorTheCat = window["colorTheCat"]
-      it("The function should return a string", () => {
-        chai.assert.isString(colorTheCat(),
-          "Be sure to return a string value")
-      })
-      it("The function should create a property called color", () => {
-        chai.assert.isDefined(testCat.color, "Be sure to use dot or bracket notation to create the color property on the cat object")
-      })
-      it("The function should return the value of the cat's color property", () => {
-        chai.assert.isTrue(testCat.color && colorTheCat() === testCat.color, "Be sure to return the value of the color property using dot or bracket notation")
+      it("Function should change the ticket's firstClass property", () => {
+        ticket.firstClass = false
+        updateValue('firstClass', true)
+        chai.assert.isTrue(ticket.firstClass, "Be sure to change the key's value using bracket notation")
       })
     })
-    describe("Deleting properties", () => {
-      it("The whiskers property should be deleted off the Cat object", () => {
-        chai.assert.isUndefined(testCat.whiskers, "Be sure to delete the property")
+    describe("flightStatus Function", () => {
+      let flightStatus = window["flightStatus"]
+      let ticket = window["ticket"]
+      it("The function should create a property called status", () => {
+        flightStatus('departed')
+        chai.assert.isDefined(ticket.status, "Be sure to use dot or bracket notation to create the 'status' property on the ticket object")
+      })
+      it("The function should set the value of the flights's status property", () => {
+        flightStatus('arrived')
+        chai.assert.strictEqual(ticket.status, 'arrived', "Be sure to set the value of the status property to the provided status using dot or bracket notation")
       })
     })
-    describe("returnIndex Function", () => {
-      let returnIndex = window["returnIndex"]
-      let testArray = {
-        likes: ['a', 'b', 'c', 'd', 'e', 'f']
-      }
-      it("The function should return the 4 item in the likes array on the cat object", () => {
-        chai.assert.strictEqual(returnIndex(testCat), testCat.likes[3], "Be sure to return the value at the proper index")
-        chai.assert.strictEqual(returnIndex(testArray), testArray.likes[3], "Be sure to return the value at the proper index")
+    describe("removeId", () => {
+      let ticket = window["ticket"]
+      let removeId = window["removeId"]
+      it("Removes the 'id' property from the ticket object", () => {
+        ticket.id = '59ee052546081123d0e21843'
+        removeId()
+        chai.assert.isUndefined(ticket.id, "Be sure to delete the 'id' property")
       })
     })
   })

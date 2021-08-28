@@ -24,7 +24,6 @@ describe("clue5", () => {
       chai.assert.isTrue(dog.likes.length >= 4, "We need to know more about her outfit")
     })
   })
-
   describe("isCaptured Function", () => {
     let isCaptured = window["isCapured"]
     it("Function uses dot notation to return the isCaptured on carmen object", () => {

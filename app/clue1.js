@@ -3,7 +3,6 @@
 // A message sent to her associate requires we decode it using a letter within a certain position of a string. 
 // Ex: ('Cryptology', 3) should return 'p'
 function letterAtPosition(str, position) {
-  return str[position]
 }
 
 

@@ -16,6 +16,12 @@ runner.on("suite end", (suite)=>{
     if(allPass){
       console.log(suite.title,'suite done')
       // call api here
+      const sectionLink = document.querySelector(`li.suite h1 a[href="/?grep=${suite.title}"]`)
+      if(!sectionLink){return}
+      const suiteElem = sectionLink?.parentElement?.parentElement
+      suiteElem.classList.add('completed')
+      // const testsElem = suiteElem?.querySelector('ul')
+      // testsElem?.classList?.add('completed')
     }
   }
 })
@@ -26,5 +32,5 @@ runner.on("suite end", (suite)=>{
  * @returns boolean
 */
 function suiteIsPassing(suite){
-  return suite.tests.every(t => t.state === 'passed')
+  return suite.tests.every(t => t.state !== 'passed')
 }

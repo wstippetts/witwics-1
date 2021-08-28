@@ -1,42 +1,55 @@
-:root{
+:root {
   --light: #f1f1f1;
   --grey: #a7a6a6;
-  --primary: #3aa5dc;
+  --primary: #b1ab8b;
   --dark: #231f20;
   --danger: #e41246;
   --success: #1db863;
 }
-body{
-  background: var(--light);
+body {
+  background: #2b2b2b;
+  font-size: 16px;
 }
 
-.back{
+.back {
   display: flex;
   align-items: center;
   margin: 0;
-  padding: .5em;
-  background: var(--dark);
-  color: var(--light);
-  position: fixed;
+  padding: 0.5em;
+  background: #1f0000;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
+  z-index: 1;
 }
-.back a{
+
+.back h5 {
+  color: #f5f1dc;
+  font-family: monospace;
+  margin-left: 1.25rem;
+  color: #f5f1dc;
+  font-family: monospace;
+  margin-left: 1.25rem;
+  font-size: 16px;
+}
+
+.logo {
+  filter: drop-shadow(1px 1px 3px #ffaf403f);
+}
+
+.back a {
   color: var(--light);
 }
-a{
+a {
   text-decoration: none;
 }
 
-#mocha{
+#mocha {
   margin: 0;
   padding: 1em;
-  margin-top: 70px;
+  margin-top: 10px;
 }
 
-#mocha #mocha-stats{
+#mocha #mocha-stats {
   color: var(--light);
   top: 16px;
   right: 25px;
@@ -46,47 +59,104 @@ a{
   z-index: 99;
 }
 
-#mocha #mocha-stats li{
+#mocha #mocha-stats li {
   padding: 1em;
   margin: 0;
 }
 
-#mocha #mocha-stats li.passes{
-  background: var(--success);
+#mocha #mocha-stats li.passes {
+  background: #2b2b2b;
 }
 
-#mocha #mocha-stats li.failures{
+#mocha #mocha-stats li.failures {
   background: var(--danger);
 }
 
 #mocha-stats .duration,
-#mocha-stats .progress{
+#mocha-stats .progress {
   display: none;
 }
 
-#mocha-stats em{
+#mocha-stats em {
   color: var(--light);
 }
 
-#mocha .test a.replay{
+#mocha .test a.replay {
   display: none;
 }
 
-ul#mocha-report > li.suite > h1{
+ul#mocha-report > li.suite > h1 {
   text-transform: uppercase;
   padding: 1em;
-  background-color: var(--primary);
-  color: var(--light);
+  color: red;
   margin: 0;
+  font-weight: 900;
+  font-family: inherit;
+  letter-spacing: 0.25em;
+  text-align: center;
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  border-bottom: 3px solid #493c36;
+}
+ul#mocha-report > li.suite.completed ul {
+  transform: scaleY(0);
+  height: 500px;
 }
 
-ul#mocha-report > li.suite{
+ul#mocha-report > li.suite.completed > h1::after {
+  color: white;
+  content: "SOLVED";
+  transform: translateX(-110px);
+  position: absolute;
+  background: darkseagreen;
+  padding: 0.25em;
+  border-radius: 5px;
+}
+
+ul#mocha-report > li.suite {
   margin-bottom: 1em;
+  margin-left: 15px;
+  background: #333022;
+  border-top-left-radius: 75px;
+  border-top-right-radius: 75px;
+  background-image: url("https://codeworks.blob.core.windows.net/public/assets/img/projects/folder.jpg");
+  padding: 1.25rem;
+  padding-top: 0;
+  background-blend-mode: overlay;
 }
 
-#mocha ul li.suite ul li.suite{
+#mocha ul li.suite ul li.suite {
   margin-left: 0;
   padding: 1em;
   background: #fff;
-  box-shadow:  0 4px 5px -5px var(--dark);
+  box-shadow: 0 4px 5px -5px var(--dark);
+}
+
+#mocha li.test.fail {
+  user-select: none;
+}
+
+#mocha li.test.fail h2 {
+  background-color: #fff;
+  transition: all 0.15s linear;
+  border-radius: 2px;
+}
+#mocha li.test.fail h2:hover {
+  background-color: #d6d6d6;
+}
+
+#mocha .test.fail pre {
+  background-color: #e8e8e8;
+}
+
+#mocha li.test.fail pre.error {
+  border: none;
+  overflow: hidden;
+  background: transparent;
+  height: 7px;
+  float: none;
+  color: red;
+  border: none;
+  box-shadow: none;
+  padding-top: 0;
 }

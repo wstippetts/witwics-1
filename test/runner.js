@@ -11,8 +11,8 @@ runner.on("suite end", async(suite)=>{
   let solution = JSON.parse(localStorage.getItem('witwics1')) || {}
   if(!suite.title.startsWith('clue')){ return }
   solution = await checkSolution(solution, suite)
-  if(!solution.completed){return}
-  showSolution(solution, suite)
+  if(!solution[suite.title].completed){return}
+  showSolution(solution[suite.title], suite)
 })
 
 
@@ -25,8 +25,14 @@ function showSolution(solution, suite){
   solutionElem.className = 'solution ' + suite.title
   solutionElem.innerHTML = /*html*/`
   <div>
-    <img src="${solution.img}">
-    <h3>${solution.name}</h3>
+  <div class="solution-img">
+      <span class="paper-clip"></span>
+      <img src="${solution.img}">
+      </div>
+      <div class="solution-type">
+        <sup>${solution.type}</sup>
+        <h3>${solution.name}</h3>
+      </div>
   </div>
   `
   suiteElem.appendChild(solutionElem)
@@ -34,7 +40,7 @@ function showSolution(solution, suite){
 
 async function checkSolution(solution, suite) {
   solution[suite.title] = solution[suite.title] || {}
-  solution[suite.title].completed = suiteFileIsPassing(suite)
+  solution[suite.title].completed = suiteIsPassing(suite)
 
   if (solution[suite.title].completed && !solution[suite.title].img) {
     let clue = await setClueData(suite, solution[suite.title])
@@ -51,15 +57,15 @@ async function setClueData(suite, clue) {
   return clue
 }
 
-/**
- * Evaluates a file of suites to determine if all are passing
- * @param suiteFile {Mocha.Suite}
-*/
-function suiteFileIsPassing(suiteFile){
-  return suiteFile.suites.every(s => {
-    return s.tests.length > 0 ? suiteIsPassing(s) : false
-  })
-}
+// /**
+//  * Evaluates a file of suites to determine if all are passing
+//  * @param suiteFile {Mocha.Suite}
+// */
+// function suiteFileIsPassing(suiteFile){
+//   return suiteFile.suites.every(s => {
+//     return s.tests.length > 0 ? suiteIsPassing(s) : false
+//   })
+// }
 
 
 /**

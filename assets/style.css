@@ -9,6 +9,7 @@
 body {
   background: #2b2b2b;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .back {
@@ -83,6 +84,11 @@ a {
 
 #mocha .test a.replay {
   display: none;
+}
+
+#mocha ul#mocha-report {
+  max-width: 80%;
+  margin: auto;
 }
 
 ul#mocha-report > li.suite > h1 {
@@ -228,4 +234,45 @@ span.paper-clip {
   right: 0;
   transform: rotate(45deg);
   z-index: 1;
+}
+
+#mocha.completed #mocha-report {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#mocha.completed .suite.completed {
+  max-width: 33vw;
+}
+
+.success {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.success canvas {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.thank-you {
+  background: #1db8639b;
+  color: whitesmoke;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 24pt;
+  border-radius: 5px;
+  filter: drop-shadow(2px 4px 6px black);
+}
+.alert {
+  padding: 0.5rem;
+  background: #fb00009b;
+  border-radius: 5px;
 }

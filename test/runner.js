@@ -6,13 +6,23 @@ import './modules/clue4.test.js'
 import './modules/clue5.test.js'
 
 const runner = mocha.run()
-
+let solved = 0
 runner.on("suite end", async(suite)=>{
   let solution = JSON.parse(localStorage.getItem('witwics1')) || {}
   if(!suite.title.startsWith('clue')){ return }
   solution = await checkSolution(solution, suite)
   if(!solution[suite.title].completed){return}
   showSolution(solution[suite.title], suite)
+  solved++
+  if(solved === 5){
+    const mochaElem = document.getElementById('mocha')
+    mochaElem.classList.add('completed')
+    document.body.appendChild(createSuccessElem())
+    setTimeout(()=>{
+      let confetti = new ConfettiGenerator();
+      confetti.render();
+    }, 500) 
+  }
 })
 
 
@@ -40,7 +50,7 @@ function showSolution(solution, suite){
 
 async function checkSolution(solution, suite) {
   solution[suite.title] = solution[suite.title] || {}
-  solution[suite.title].completed = suiteIsPassing(suite)
+  solution[suite.title].completed = suiteFileIsPassing(suite)
 
   if (solution[suite.title].completed && !solution[suite.title].img) {
     let clue = await setClueData(suite, solution[suite.title])
@@ -57,15 +67,15 @@ async function setClueData(suite, clue) {
   return clue
 }
 
-// /**
-//  * Evaluates a file of suites to determine if all are passing
-//  * @param suiteFile {Mocha.Suite}
-// */
-// function suiteFileIsPassing(suiteFile){
-//   return suiteFile.suites.every(s => {
-//     return s.tests.length > 0 ? suiteIsPassing(s) : false
-//   })
-// }
+/**
+ * Evaluates a file of suites to determine if all are passing
+ * @param suiteFile {Mocha.Suite}
+*/
+function suiteFileIsPassing(suiteFile){
+  return suiteFile.suites.every(s => {
+    return s.tests.length > 0 ? suiteIsPassing(s) : false
+  })
+}
 
 
 /**
@@ -74,5 +84,20 @@ async function setClueData(suite, clue) {
  * @returns boolean
 */
 function suiteIsPassing(suite){
-  return suite.tests.every(t => t.state !== 'passed')
+  return suite.tests.every(t => t.state === 'passed')
+}
+
+
+function createSuccessElem(){
+  const div = document.createElement('div')
+  div.className = 'success'
+  div.innerHTML = /*html*/`
+    <canvas id="confetti-holder"></canvas>
+    <div class="thank-you">
+      <h4>Thank you GumShoe</h4>
+      <p>Your work has stopped Carmen from achieving her goals.</p>
+    </div>
+    <p class="thank-you alert">⚠ Unfortunately, she alluded capture so we'll <em>see you</em> on the next mission!</p>
+  `
+  return div
 }

@@ -1,12 +1,5 @@
 describe("clue5", () => {
-  let carmen
-  try {
-    carmen = carmen
-  } catch (e) { console.error(e) }
-  let testCarmen
-  try {
-    testCarmen = carmen
-  } catch (e) { console.error(e) }
+  let carmen = window['carmen']
   describe("Carmen Object", () => {
     it("Has a name property", () => {
       chai.assert.isString(carmen.name, "Be sure to use the string data type")
@@ -21,11 +14,11 @@ describe("clue5", () => {
       chai.assert.isArray(carmen.outfit, "Be sure to use the array data type")
     })
     it("outfit at least 4 things", () => {
-      chai.assert.isTrue(dog.likes.length >= 4, "We need to know more about her outfit")
+      chai.assert.isTrue(carmen.outfit.length >= 4, "We need to know more about her outfit")
     })
   })
   describe("isCaptured Function", () => {
-    let isCaptured = window["isCapured"]
+    let isCaptured = window["isCaptured"]
     it("Function uses dot notation to return the isCaptured on carmen object", () => {
       carmen.captured = false
       chai.assert.isTrue(isCaptured() == carmen.captured, "Be sure to use dot notation")

@@ -236,12 +236,15 @@ span.paper-clip {
   z-index: 1;
 }
 
-#mocha.completed #mocha-report {
+#mocha #mocha-report {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-#mocha.completed .suite.completed {
+#mocha .suite:not(.completed) {
+  width: 100%;
+}
+#mocha .suite.completed {
   max-width: 33vw;
 }
 
